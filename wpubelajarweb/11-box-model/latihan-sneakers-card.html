@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sneakers Product Card</title>
+
+<style>
+
+/* PENGATURAN DASAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cfc5cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* KOTAK PRODUK */
+.card {
+    width: 420px;
+    background-color: rgb(254, 178, 240);
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px blueviolet;
+}
+
+/* GAMBAR PRODUK */
+.image-box {
+    background-color: #d38ce9;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+.product-image {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    background-color: #76093c;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.04);
+}
+
+
+/* KATEGORI */
+.category {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+/* NAMA PRODUK */
+h2 {
+    color: #292743;
+    margin-top: 12px;
+    font-size: 25px;
+}
+
+/* DESKRIPSI */
+.description {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 12px;
+}
+
+/* HARGA */
+.price {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.price h3 {
+    color: #292743;
+    font-size: 25px;
+}
+
+.old-price {
+    color: #512a2a;
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+/* PEMBATAS */
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 22px 0;
+}
+
+/* PILIH UKURAN */
+.size-title {
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.sizes {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.size {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f4;
+    color: #292743;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.size.active {
+    background-color: #292743;
+    color: white;
+}
+
+/* TOMBOL KERANJANG */
+button.cart {
+    width: 100%;
+    padding: 17px;
+    margin-top: 30px;
+    background-color: #292743;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.cart:hover {
+    background-color: #e87936;
+}
+
+/* INFORMASI PENGIRIMAN */
+.shipping {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="image-box">
+
+      <img
+  class="product-image"
+  src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSCOwIZtGxxZtxBmjH9gGSD2iW-9NprugWKsNS4inefpHAEwKr9CXR8UNBOqCh-wq4srpuqzQBtVHeZ9WBGdA1A2bjFjljkn8OYHzOg6OLskYVKld2GWmyiOtWTGm6XvoUVUZC_P5VwIg&usqp=CAc"
+  alt="Velocity Runner X - Speed Running Shoes"
+  loading="lazy"
+>
+    </div>
+
+    <p class="category">URBAN FOOTWEAR</p>
+
+    <h2>Velocity Runner X</h2>
+
+    <p class="description">
+        Sneakers modern dengan desain sporty,
+        bantalan empuk, dan material breathable
+        untuk menemani aktivitas sehari-hari.
+    </p>
+
+    <div class="price">
+        <h3>Rp 997.000</h3>
+        <span class="old-price">Rp 1.980.250</span>
+    </div>
+
+    <hr>
+
+    <p class="size-title">Pilih Ukuran (US):</p>
+
+    <div class="sizes">
+        <button class="size">7</button>
+        <button class="size">8</button>
+        <button class="size active">9</button>
+        <button class="size">10</button>
+        <button class="size">11</button>
+    </div>
+
+    <button class="cart"
+    onclick="alert('Produk berhasil ditambahkan!')">
+        TAMBAHKAN KE KERANJANG
+    </button>
+
+    <p class="shipping">
+        🚚 Free Shipping • Easy Return
+    </p>
+
+</div>
+
+<script>
+
+// MEMILIH UKURAN SEPATU
+const sizes = document.querySelectorAll('.size');
+
+sizes.forEach(size => {
+    size.addEventListener('click', function() {
+
+        sizes.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        this.classList.add('active');
+
+    });
+});
+
+</script>
+
+</body>
+</html>
