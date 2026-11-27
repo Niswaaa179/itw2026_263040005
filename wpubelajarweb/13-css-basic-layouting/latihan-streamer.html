@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CELIBOY | The Miracle Boy</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: linear-gradient(135deg, #16070C, #35101C, #200910);
+      color: #f8e9ed;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* PROMO BANNER */
+    .top-banner {
+      background: linear-gradient(to right, #701C30, #A52A43, #701C30);
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.4);
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #240B13;
+      padding: 18px 50px;
+      border-bottom: 2px solid #701C30;
+      overflow: auto;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    .navbar .nav-logo {
+      float: left;
+      color: #D4A85B;
+      font-size: 25px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-weight: 900;
+    }
+
+    .navbar .nav-menu {
+      float: right;
+      list-style: none;
+      margin-top: 5px;
+    }
+
+    .navbar .nav-menu li {
+      display: inline-block;
+      margin-left: 25px;
+    }
+
+    .navbar .nav-menu li a {
+      color: #f8e9ed;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .navbar .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background-color: #D4A85B;
+      transition: width 0.3s;
+    }
+
+    .navbar .nav-menu li a:hover::after {
+      width: 100%;
+    }
+
+    /* MAIN */
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    /* BIO SECTION */
+    main .bio {
+      background: linear-gradient(135deg, #35101C, #240B13);
+      padding: 35px;
+      border-radius: 16px;
+      margin-bottom: 50px;
+      border: 1px solid #70253A;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+      overflow: auto;
+    }
+
+    main .bio img {
+      float: left;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      border: 3px solid #A52A43;
+    }
+
+    main .bio h2 {
+      margin-bottom: 15px;
+      font-size: 32px;
+      background: linear-gradient(to right, #D4A85B, #E85D75);
+      background-clip: text;
+      color: transparent;
+    }
+
+    main .bio p {
+      margin-bottom: 15px;
+      color: #e8cbd2;
+      font-size: 14px;
+    }
+
+    /* PROFILE CARD */
+    main .card-container {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    main .card-container .profile-wrapper {
+      display: inline-block;
+      border: 6px solid #70253A;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px rgb(0 0 0 / 0.6);
+      overflow: hidden;
+      position: relative;
+      background: #240B13;
+    }
+
+    main .card-container .profile-wrapper img {
+      width: 100%;
+      display: block;
+      max-width: 600px;
+    }
+
+    main .card-container .profile-wrapper .badge {
+      background: linear-gradient(90deg, #A52A43, #D4A85B);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 13px;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.4);
+    }
+
+    /* SCHEDULE */
+    main .schedule {
+      background-color: #240B13;
+      padding: 30px;
+      border: 1px dashed #A52A43;
+      margin-bottom: 60px;
+      border-radius: 12px;
+    }
+
+    :is(.schedule, .gallery) h3 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+      color: #D4A85B;
+    }
+
+    main .schedule ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    main .schedule ul li {
+      margin-bottom: 10px;
+      padding: 12px;
+      transition: 0.3s;
+      color: #f8e9ed;
+    }
+
+    main .schedule ul li:nth-child(even) {
+      background-color: rgb(165 42 67 / 0.15);
+      border-radius: 6px;
+    }
+
+    main .schedule ul li:hover {
+      transform: scale(1.02);
+      color: #D4A85B;
+    }
+
+    main .schedule ul li b {
+      color: #E85D75;
+    }
+
+    /* GALLERY */
+    main .gallery {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    main .gallery h3 {
+      text-align: left;
+      margin-bottom: 30px;
+      border-left: 6px solid #D4A85B;
+      padding-left: 15px;
+    }
+
+    main .gallery .video-item {
+      display: inline-block;
+      width: 23%;
+      margin: 1%;
+      background-color: #35101C;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #70253A;
+      text-align: left;
+      transition: 0.3s;
+      vertical-align: top;
+    }
+
+    main .gallery .video-item:hover {
+      box-shadow: 0 10px 25px rgb(165 42 67 / 0.4);
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    main .gallery:has(.video-item:hover) .video-item:not(:hover) {
+      opacity: 0.5;
+      filter: grayscale(80%);
+    }
+
+    main .gallery .video-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    main .gallery .video-item img.mpl-season-6,
+    main .gallery .video-item img.m2-world-championship {
+      object-position: center top;
+    }
+
+    main .gallery .video-item .video-info {
+      padding: 15px;
+    }
+
+    main .gallery .video-item .video-info h4 {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #f8e9ed;
+    }
+
+    main .gallery .video-item .video-info p {
+      font-size: 11px;
+      color: #c49aa5;
+      
+    }
+
+
+    /* CHAT BUTTON */
+    .chat-btn {
+      position: fixed;
+      bottom: 35px;
+      right: 35px;
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #A52A43, #701C30);
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 28px;
+      text-align: center;
+      line-height: 65px;
+      box-shadow: 0 15px 30px rgb(0 0 0 / 0.5);
+      transition: 0.3s;
+    }
+
+    .chat-btn:hover {
+      background: #D4A85B;
+      transform: scale(1.1);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #16070C;
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #70253A;
+      color: #c49aa5;
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar .nav-menu li {
+        margin-left: 10px;
+      }
+
+      main .bio img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+      }
+
+      main .gallery .video-item {
+        width: 45%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PROMO BANNER -->
+  <div class="top-banner">
+    🔥 WELCOME TO THE WORLD OF CELIBOY | THE MIRACLE BOY 🔥
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">CELIBOY.</a>
+
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ABOUT SECTION -->
+    <section class="bio" id="about">
+
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnrGXgm2gE3cEAA9ByhKha_aYTLV04YD3dWIQZlPRZc4HgzUoI0NHOF69C&s=10"
+           alt="Celiboy Profile">
+
+      <h2>The Miracle Boy</h2>
+
+      <p>
+        Halo, saya Celiboy! Dikenal dengan nama asli Eldin
+        Rahadian Putra, saya merupakan salah satu pemain
+        profesional Mobile Legends asal Indonesia yang
+        dikenal melalui perjalanan karier bersama Alter Ego.
+      </p>
+
+      <p>
+        Memulai perjalanan esports sejak usia muda,
+        Celiboy berhasil menarik perhatian penggemar
+        berkat kemampuan bermain yang mengesankan.
+        Julukan <b>The Miracle Boy</b> menjadi identitas
+        yang melekat pada dirinya di dunia kompetitif
+        Mobile Legends.
+      </p>
+
+      <p>
+        Dengan pengalaman sebagai Jungler dan Mid Laner,
+        Celiboy telah melewati berbagai pertandingan
+        kompetitif dan menorehkan prestasi di tingkat
+        nasional maupun internasional.
+      </p>
+
+    </section>
+
+    <!-- PROFILE STATUS -->
+    <section class="card-container">
+
+      <figure class="profile-wrapper">
+
+        <span class="badge">★ THE MIRACLE BOY</span>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnv3gbvRHovWahl4OQkeDq1TIuvmkdKpqKfUpCbgjeA&s=10"
+             alt="Celiboy Main Profile Display">
+
+      </figure>
+
+    </section>
+
+    <!-- PLAYER INFORMATION -->
+    <section class="schedule">
+
+      <h3>🎮 Player Information</h3>
+
+      <ul>
+        <li>Nama Lengkap: <b>Eldin Rahadian Putra</b></li>
+        <li>Nickname: <b>Celiboy</b></li>
+        <li>Asal: <b>Bekasi, Indonesia</b></li>
+        <li>Game: <b>Mobile Legends: Bang Bang</b></li>
+        <li>Role: <b>Jungler / Mid Laner</b></li>
+        <li>Julukan: <b>The Miracle Boy</b></li>
+        <li>Tim yang pernah dibela: <b>RRQ TCN, Alter Ego, Alter Ego X</b></li>
+      </ul>
+
+    </section>
+
+    <!-- ACHIEVEMENT GALLERY -->
+    <section class="gallery" id="highlights">
+
+      <h3>Career Highlights</h3>
+
+      <figure class="video-item">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzecvmAh5Z5WsKn_3swmhVfWiBcLmb9PUHy2HklB0wdmJaBBQfmgeJi9Y&s=10"
+             alt="MPL Season 4">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 4</h4>
+
+          <p>3rd Place | 2019</p>
+
+        </figcaption>
+
+      </figure>
+
+      <figure class="video-item">
+
+        <img src="https://media.hitekno.com/thumbs/2021/03/11/56426-alter-ego-celiboy-instagramceliboyy/730x480-img-56426-alter-ego-celiboy-instagramceliboyy.jpg"
+             alt="MPL Season 6" class="mpl-season-6">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 6</h4>
+
+          <p>Runner Up | 2020</p>
+
+        </figcaption>
+
+      </figure>
+
+      <figure class="video-item">
+
+        <img src="https://cdn.oneesports.gg/wp-content/uploads/sites/2/2020/12/Celi-MVP.jpg"
+             alt="MPL Invitational">
+
+        <figcaption class="video-info">
+
+          <h4>ONE Esports MPL Invitational 2020</h4>
+
+          <p>Champion & MVP | 2020</p>
+
+        </figcaption>
+
+      </figure>
+
+      <figure class="video-item">
+
+        <img src="https://cdn.oneesports.gg/wp-content/uploads/sites/2/2023/09/Mobile-Legends_Celiboy_Alter-Ego_MPL-ID-S12_4.jpeg"
+             alt="MPL Indonesia Season 7" class="mpl-season-7">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 7</h4>
+
+          <p>6th Place | 2021</p>
+
+        </figcaption>
+
+      </figure>
+      <figure class="video-item">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj__yjVCL_Yn9NwLycCCSUOWa_DOoOowhzSvAR-qnUjQ&s=10"
+             alt="MPL Indonesia Season 8" class="mpl-season-8">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 8</h4>
+
+          <p>4th Place | 2021</p>
+
+        </figcaption>
+
+      </figure>
+      <figure class="video-item">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_V-kfIuLiI2hwvNqP3M9S1xk37knV8WjXhwnih4Z6Vjy5SlzzN5pcckcu&s=10"
+             alt="M2 World Championship" class="m2-world-championship">
+
+        <figcaption class="video-info">
+
+          <h4>M2 World Championship</h4>
+
+          <p>4th Place | 2021</p>
+
+        </figcaption>
+
+      </figure>
+      <figure class="video-item">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSloXnSQWsT3KL5L_OQoTHAXlSCYfCvxB6dO3yWqVt1E2EBWIPsArFdWw&s=10"
+             alt="ONE Esports MPL Invitational 2021" class="ONE Esports MPL Invitational 2021">
+
+        <figcaption class="video-info">
+
+          <h4>ONE Esports MPL Invitational 2021</h4>
+
+          <p>3rd place | 2021</p>
+
+        </figcaption>
+
+      </figure>
+      
+      <figure class="video-item">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_V-kfIuLiI2hwvNqP3M9S1xk37knV8WjXhwnih4Z6Vjy5SlzzN5pcckcu&s=10"
+             alt="MPL Indonesia Season 9" class="mpl-season-9">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 9</h4>
+
+          <p>6th Place | 2022</p>
+
+        </figcaption>
+
+      </figure>
+
+      <figure class="video-item">
+
+        <img src="https://media.hitekno.com/thumbs/2021/08/18/72072-alter-ego-celiboy/730x480-img-72072-alter-ego-celiboy.jpg"
+             alt="MPL Indonesia Season 10" class="mpl-season-10">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 10</h4>
+
+          <p>5th Place | 2022</p>
+
+        </figcaption>
+
+      </figure>
+
+      <figure class="video-item">
+
+        <img src="https://media.hitekno.com/thumbs/2021/08/18/72072-alter-ego-celiboy/730x480-img-72072-alter-ego-celiboy.jpg"
+             alt="MPL Indonesia Season 11" class="mpl-season-11">
+
+        <figcaption class="video-info">
+
+          <h4>MPL Indonesia Season 11</h4>
+
+          <p>3rd Place | 2023</p>
+
+        </figcaption>
+
+      </figure>
+      
+
+    </section>
+
+  </main>
+
+  <!-- CHAT BUTTON -->
+  <a href="https://www.instagram.com/celiboyy/"
+     class="chat-btn"
+     title="Visit Celiboy Instagram"
+     target="_blank">
+    ↗
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 CELIBOY PROFILE | THE MIRACLE BOY</p>
+    <p>Mobile Legends Professional Player</p>
+  </footer>
+
+</body>
+</html>
